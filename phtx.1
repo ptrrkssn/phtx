@@ -1,0 +1,193 @@
+.TH "PHTX" "1" "13 May 2015" "" ""
+.SH NAME
+phtx \- Peter's HTML Table Extractor
+.SH SYNOPSIS
+.LP
+.nf
+\fBphtx\fR [\fB-hVrcfRvsd\fR] [\fB-I\fR \fImode\fR] [\fB-E\fR \fIstring\fR] [\fB-D\fR \fIdelim\fR]
+     [\fB-M\fR \fImatch\fR] [\fB-O\fR \fIoutput-file\fR] \fIinput-file\fR
+.fi
+
+.SH "DESCRIPTION"
+.sp
+.LP
+\fBphtx\fR is a command line tool that extract data from tables in HTML-encoded files (possible downloaded with \fBwget\fR or \fBcurl\fR).
+.sp
+.LP
+It will strip the data from HTML tags and (if told so) extra whitespace, and output it as CSV data (on stdout by default). It should handle multiple, recursive HTML tables in a (hopefully) sane way. If you find bugs in this program, please notify the author.
+.SH OPTIONS
+.sp
+.LP
+The following options are supported as of version 1.6:
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-h\fR\fR
+.ad
+.RS 15n
+.rt
+Prints information about available options.
+.RE
+
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-V\fR\fR
+.ad
+.RS 15n
+.rt
+Prints version and build information.
+.RE
+
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-r\fR\fR
+.ad
+.RS 15n
+.rt
+Prefix CSV output table data with table id and row numbers, making it easy to detect valid table id numbers.
+.RE
+
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-c\fR\fR
+.ad
+.RS 15n
+.rt
+Output table caption (if defined) into the CSV output (as data row 0).
+.RE
+
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-f\fR\fR
+.ad
+.RS 15n
+.rt
+Fill-out tables to equal length rows (making all rows in the CSV output contain equal amounts of "cells".
+.RE
+
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-R\fR\fR
+.ad
+.RS 15n
+.rt
+Row/Col-span repeat mode. Fill out the generated CSV output according to HTML table cell "span" options.
+.RE
+
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-s\fR\fR
+.ad
+.RS 15n
+.rt
+Increase whitespace strip level. First level removes leading and trailing cell whitespace. Level 2 will collapse internal multiple whitespace (between words in a cell) into a single space.
+.RE
+
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-v\fR\fR
+.ad
+.RS 15n
+.rt
+Increase verbosity level, giving more information about what the tool is doing.
+.RE
+
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-d\fR\fR
+.ad
+.RS 15n
+.rt
+Increase debug level. Problably only useful when debugging the tool.
+.RE
+
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-I\fR \fImode\fR
+.ad
+.RS 15n
+.rt
+Special IMG-parsing mode. Currently only valid mode defined is \fBtidbokonline\fR - used when parsing and converting HTML IMG data to text for a special website.
+.RE
+
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-E\fR \fIstring\fR
+.ad
+.RS 15n
+.rt
+Set string to print instead of empty cells (default is nothing).
+.RE
+
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-D\fR \fIdelim\fR
+.ad
+.RS 15n
+.rt
+CSV field separator (default is semicolon).
+.RE
+
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-M\fR \fItable-id\fR
+.ad
+.RS 15n
+.rt
+Output only tables matching \fItable-id\fR.
+.RE
+
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-O\fR \fIoutput-file\fR
+.ad
+.RS 15n
+.rt
+Write CSV output to \fIoutput-file\fR. Default is to write to stdout.
+.RE
+
+.SH "EXIT STATUS"
+.sp
+.LP
+Returns 0 if table extraction succeeded.
+
+.SH "SEE ALSO"
+.PP
+wget (1) and curl (1).
+
+.SH "AUTHOR"
+.PP
+pftpd was written by Peter Eriksson <pen@lysator.liu.se>.
+.PP
+Permission is granted to copy, distribute and/or modify this
+document under the terms of the GNU Free
+Documentation License, Version 1.1 or any later version
+published by the Free Software Foundation; with no Invariant
+Sections, no Front-Cover Texts and no Back-Cover Texts.

@@ -1,0 +1,25 @@
+Peter's HTML Table Data Extractor
+
+
+LICENSE:
+
+This program is free software; you can redistribute it and/or
+modify it as you wish - as long as you don't claim that you wrote
+it.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+DESCRIPTION:
+
+This is a small tool that can be used to extract data from HTML Tables in files.
+It will strip the data from extra space and other HTML tags and output it as
+CSV data on stdout.
+
+If you find any bugs with the code, please feel free to send me patches at:
+
+	Peter Eriksson <pen@lysator.liu.se>
+
+- Peter

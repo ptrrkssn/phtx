@@ -1,0 +1,24 @@
+2015-05-11  Peter Eriksson  <pen@lysator.liu.se>
+
+	* Version 1.6 released
+
+	* phtx.c (main): Automatically close <TD> at </TR>
+
+	* phtx.1: Added a manual page
+
+2013-06-10  Peter Eriksson  <pen@lysator.liu.se>
+
+	* Version 1.5.1 released
+
+	* phtx.c (various): printf type fixes
+
+	* phtx.c (table_close): 'tsc' check in wrong place caused SIGSEGV
+
+	* entities.c (str2ent): Missing intitalization of 'd' caused str2ent to fail.
+	
+
+2013-06-01  Peter Eriksson  <pen@lysator.liu.se>
+
+	* Version 1.5 released
+	
+
