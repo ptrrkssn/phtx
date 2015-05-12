@@ -14,8 +14,6 @@
 **
 */
 
-/* TODO: Handle removal of tags better (delete, not replace with whitespace) */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>

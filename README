@@ -14,12 +14,21 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 DESCRIPTION:
 
-This is a small tool that can be used to extract data from HTML Tables in files.
+This is a small tool that can be used to extract data from HTML tables in files.
 It will strip the data from extra space and other HTML tags and output it as
 CSV data on stdout.
 
 If you find any bugs with the code, please feel free to send me patches at:
 
 	Peter Eriksson <pen@lysator.liu.se>
+
+
+KNOWN PROBLEMS / LIMITATIONS
+
+The code assumes the HTML file uses ASCII or ISO 8859-1 (Latin-1) encoding (mostly
+only an issue if the source uses HTML "entities" like &auml; and similar stuff).
+
+Currently has a hardcoded limit of 256 tables per source file.
+
 
 - Peter
