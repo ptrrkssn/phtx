@@ -17,8 +17,9 @@ phtx.o: 	phtx.c entities.h
 entities.o: 	entities.c entities.h
 version.o:	version.c
 
-version.c:
-	basename `pwd` | awk -F- '{print "char version[] = \"" $$2 "\";"}' >version.c
+version:
+	git tag | sed -e 's/^v//' | awk '{print "char version[] = \"" $$1 "\";"}' >.version && mv .version version.c
+#	(basename `pwd` | awk -F- '{ if ($$2 == "") {exit 1} else {print "char version[] = \"" $$2 "\";"}}') >.version && mv .version version.c
 
 clean:
 	-rm -f *.o core phtx *~ \#* t/*.out t/*.log t/*~ t/\#*
@@ -43,6 +44,3 @@ test:	phtx
 	    done ; \
 	    echo "" ; \
 	done
-
-dist:	distclean
-	NAME="`basename \`pwd\``" ; cd .. ; tar cpf - $$NAME | gzip >$$NAME.tar.gz
