@@ -1,2 +1,2 @@
 # phtx
-HTML Table Data Extractor
+Peter's HTML Table Data Extractor
